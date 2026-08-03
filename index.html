@@ -1220,60 +1220,54 @@ details.project-card > summary::-webkit-details-marker {
 /* ==========================================
    AJUSTES EXCLUSIVOS PARA MÓVIL (MAX-WIDTH: 768PX)
    ========================================== */
+/* --- CORRECCIÓN DE TARJETAS DESPLEGABLES EN MÓVIL --- */
 @media (max-width: 768px) {
 
-  /* --- PROYECTOS RESPONSIVE --- */
-  .projects-grid {
-    grid-template-columns: 1fr !important; /* Fuerza 1 sola columna en móvil */
-    gap: 1.5rem !important;
-    padding: 0 0.5rem; /* Margen lateral mínimo para no apretar */
+  /* 1. Aseguramos el centrado perfecto del contenedor de proyectos */
+  .project-line {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
   }
 
+  .projects-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* Centra las tarjetas horizontalmente */
+    width: 100% !important;
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  /* 2. Flexibilidad total al desplegar (soluciona el corte del 2º proyecto y descentrado del 1º) */
   .project-card {
     width: 100% !important;
-    height: auto !important; /* Permite que la tarjeta crezca al desplegar información */
-    overflow: visible !important; /* Evita que las imágenes o el texto se corten */
-  }
-
-  .project-img-wrapper {
-    height: auto !important; /* Cancela alturas fijas que comprimen la foto */
-    aspect-ratio: 16 / 9; /* Mantienen siempre la proporción perfecta */
-    max-height: 220px;
-    width: 100%;
-  }
-
-  .project-img-wrapper img {
-    height: 100% !important;
-    width: 100% !important;
-    object-fit: cover !important; /* La foto se escala sin deformarse ni cortarse feo */
-  }
-
-  .project-info {
-    padding: 1rem !important; /* Menos relleno interno para dar espacio al texto */
-  }
-
-
-  /* --- CONTACTO Y REDES RESPONSIVE --- */
-  .contacto-wrapper {
-    flex-direction: column !important; /* Fuerza apilamiento vertical */
-    gap: 20px !important;
-    padding: 0 0.5rem;
-  }
-
-  .contacto-col-info, 
-  .contacto-col-mapa {
-    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;          /* Permite crecer infinitamente al desplegar */
+    max-height: none !important;     /* Elimina cualquier tope de altura */
+    overflow: visible !important;     /* Asegura que el texto desplegado se vea entero */
+    margin: 0 auto !important;       /* Mantiene la tarjeta centrada */
     box-sizing: border-box !important;
-    padding: 15px 12px !important; /* Relleno compacto para no ahogar los textos */
   }
 
-  .contacto-lista-redes a {
-    font-size: 0.95rem !important; /* Tamaño de letra ligeramente más cómodo en pantalla pequeña */
-    word-break: break-all; /* Si el email es muy largo, salta de línea sin salirse */
+  /* 3. Asegura que el contenedor de texto de la tarjeta no limite la lectura */
+  .project-info {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 1.2rem 1rem !important;
   }
 
-  .contacto-col-mapa {
-    min-height: 260px !important; /* Altura adecuada para el mapa en teléfono */
+  /* 4. Si tus proyectos desplegables usan una clase específica como .active, .open o .expanded */
+  .project-card.active,
+  .project-card.expanded,
+  .project-card.open {
+    height: auto !important;
+    max-height: none !important;
   }
 }
   </style>
