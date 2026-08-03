@@ -1339,6 +1339,312 @@ details.project-card > summary::-webkit-details-marker {
   border: none;
 }
 }
+/* --- SECCIÓN TRANSFERENCIA --- */
+.transferencia-bloque {
+  margin-bottom: 45px;
+}
+
+.transferencia-bloque h3 {
+  font-size: 1.35rem;
+  color: var(--primary-color, #1a365d);
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* 1. Divulgación */
+.divulgacion-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.divulgacion-card {
+  background: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  padding: 18px;
+  border-radius: 0 8px 8px 0;
+}
+
+.fecha-tag {
+  display: inline-block;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.img-divulgacion {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* --- APARTADO APLICACIONES: CENTRADO CON FLEXBOX RESPONSIVE --- */
+
+.apps-destacadas-section {
+  background: #f0f7f7;
+  padding: 28px 22px;
+  border-radius: 12px;
+  border: 1px solid #cce3e3;
+}
+
+.apps-destacadas-section h3 {
+  color: #0b2530;
+  border-bottom: 2px solid #b2d8d8;
+  margin-bottom: 8px;
+}
+
+.apps-intro {
+  color: #1a4d56;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* Flexbox centrado: la quinta aplicación quedará en el centro de la última fila */
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.app-card {
+  flex: 1 1 240px; /* Crece de forma proporcional pero respeta el ancho mínimo */
+  max-width: 300px;
+  background: #ffffff;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #114b5f;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(17, 75, 95, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Área de imagen */
+.app-card-thumb {
+  height: 115px;
+  width: 100%;
+  background-image: var(--app-bg, linear-gradient(135deg, #0b2530 0%, #114b5f 100%));
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.app-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(11, 37, 48, 0.2), rgba(11, 37, 48, 0.6));
+  transition: opacity 0.3s ease;
+}
+
+/* Cuerpo de la tarjeta */
+.app-card-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  background: #0f3846;
+  color: #ffffff;
+}
+
+.app-card h4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #f1f5f9;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+.app-link {
+  font-size: 0.82rem;
+  color: #6ee7b7;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efectos Hover */
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(11, 37, 48, 0.22);
+  border-color: #0284c7;
+}
+
+.app-card:hover .app-card-thumb {
+  transform: scale(1.06);
+}
+
+.app-card:hover .app-card-thumb::after {
+  opacity: 0.4;
+}
+
+.app-card:hover .app-link {
+  color: #a7f3d0;
+  transform: translateX(3px);
+}
+
+/* Adaptación responsive para móviles */
+@media (max-width: 768px) {
+  .apps-destacadas-section {
+    padding: 18px 12px;
+  }
+
+  .apps-grid {
+    gap: 12px;
+  }
+
+  .app-card {
+    flex: 1 1 calc(50% - 12px); /* Mantiene 2 tarjetas por fila en pantalla pequeña */
+    min-width: 140px;
+    max-width: 100%;
+  }
+
+  .app-card-thumb {
+    height: 90px;
+  }
+
+  .app-card-body {
+    padding: 12px;
+  }
+
+  .app-card h4 {
+    font-size: 0.83rem;
+  }
+
+  .app-link {
+    font-size: 0.78rem;
+  }
+}
+
+/* 3. Carruseles (Desplazamiento horizontal para imágenes) */
+.carrusel-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-top: 12px;
+  padding-bottom: 8px;
+}
+
+.carrusel-track {
+  display: flex;
+  gap: 12px;
+}
+
+.carrusel-track img {
+  scroll-snap-align: start;
+  flex: 0 0 260px; /* Ancho fijo para cada slide del carrusel */
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.juego-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- GALERÍA DE MAPAS AMPLIADA Y CENTRADA --- */
+
+.mapas-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos de la última fila */
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.mapa-item {
+  flex: 1 1 320px; /* Ancho base amplio para cada mapa */
+  max-width: 450px; /* Limita el ancho máximo para que no se deformen */
+  min-width: 280px;
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  background: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mapa-item img {
+  width: 100%;
+  height: 260px; /* Altura generosa para visualización en grande */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* Indicador dinámico al pasar el ratón */
+.mapa-item::after {
+  content: "🔍 Clic para ampliar";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Efectos Hover */
+.mapa-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  border-color: #3b82f6;
+}
+
+.mapa-item:hover img {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+.mapa-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ajustes Responsive en Móvil */
+@media (max-width: 768px) {
+  .mapas-galeria {
+    gap: 16px;
+  }
+
+  .mapa-item {
+    flex: 1 1 100%; /* En móviles ocupa todo el ancho */
+    max-width: 100%;
+  }
+
+  .mapa-item img {
+    height: 210px;
+  }
+}
   </style>
 </head>
 <body>
@@ -2199,11 +2505,161 @@ details.project-card > summary::-webkit-details-marker {
   </div> <!-- CIERRE DEL CONTENEDOR ENVOLVENTE -->
 </section>
 
-    <!-- Transferencia -->
-    <section id="transferencia" class="tab-section">
-      <h2>Transferencia: descubre mapas, juegos y mucho más</h2>
-      <p>Espacio dedicado a compartir materiales interactivos, cartografía y recursos de divulgación científica.</p>
-    </section>
+   <!-- Sección Transferencia -->
+<section id="transferencia" class="tab-section">
+  <div class="section-header">
+    <h2>Transferencia y divulgación</h2>
+   </div>
+
+  <!-- APARTADO 1: DIVULGACIÓN -->
+  <div class="transferencia-bloque">
+    <h3>Participación en actividades de divulgación</h3>
+    <div class="divulgacion-lista">
+      
+      <!-- Pint of Science 2026 -->
+      <article class="divulgacion-card">
+        <div class="divulgacion-info">
+          <span class="fecha-tag">Mayo 2026</span>
+          <h4>Pint of Science</h4>
+          <p>Presentación de la charla <em>"Rastreando los grafitis del centro de Cádiz"</em> en el bar King Lab (Cádiz).</p>
+        </div>
+        <div class="divulgacion-media">
+          <img src="pint.jpg" alt="Pint of Science 2026" class="img-divulgacion">
+        </div>
+      </article>
+
+      <!-- Noche Europea Investigadores 2025 -->
+      <article class="divulgacion-card">
+        <div class="divulgacion-info">
+          <span class="fecha-tag">Noviembre 2025</span>
+          <h4>La Noche Europea de los Investigadores</h4>
+          <p>Presentación del juego <em>"Marismas y Flamencos. Decide el destino de la Bahía de Cádiz"</em>.</p>
+        </div>
+        <!-- Carrusel Divulgación -->
+        <div class="carrusel-container">
+          <div class="carrusel-track">
+            <img src="nei1.jpg" alt="Noche de los Investigadores 1">
+            <img src="nei2.jpg" alt="Noche de los Investigadores 2">
+            <img src="nei3.jpg" alt="Noche de los Investigadores 3">
+            <img src="nei4.jpg" alt="Noche de los Investigadores 4">
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+ <!-- APARTADO 2: APLICACIONES (BLOQUE DESTACADO) -->
+<div class="transferencia-bloque apps-destacadas-section">
+  <h3>Aplicaciones</h3>
+  <p class="apps-intro">Herramientas y visores de cartografía dinámica e interactiva:</p>
+
+  <div class="apps-grid">
+    <!-- App 1 -->
+    <a href="https://univ-cadiz.maps.arcgis.com/apps/dashboards/6e878302175044fea5ec9eda7533fb70" target="_blank" rel="noopener" class="app-card" style="--app-bg: url('app1.png');">
+      <div class="app-card-thumb"></div>
+      <div class="app-card-body">
+        <h4>Visor del impacto de grafitis en el casco histórico</h4>
+        <span class="app-link">Abrir Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- App 2 -->
+    <a href="https://univ-cadiz.maps.arcgis.com/apps/dashboards/82a4c6585dcc443289e0406c825896da" target="_blank" rel="noopener" class="app-card" style="--app-bg: url('app2.png');">
+      <div class="app-card-thumb"></div>
+      <div class="app-card-body">
+        <h4>Análisis de grafitis en calles y espacios abiertos</h4>
+        <span class="app-link">Abrir Dashboard →</span>
+      </div>
+    </a>
+
+    <!-- App 3 -->
+    <a href="https://experience.arcgis.com/experience/a3d1f216e0aa42af92d96846b205c254" target="_blank" rel="noopener" class="app-card" style="--app-bg: url('app3.png');">
+      <div class="app-card-thumb"></div>
+      <div class="app-card-body">
+        <h4>Visor 3D: Impacto de grafitis por longitud de fachada</h4>
+        <span class="app-link">Abrir Visor 3D →</span>
+      </div>
+    </a>
+
+    <!-- App 4 -->
+    <a href="https://univ-cadiz.maps.arcgis.com/apps/instant/attachmentviewer/index.html?appid=f38a28ab0a3846c9a9296587be666223" target="_blank" rel="noopener" class="app-card" style="--app-bg: url('app4.png');">
+      <div class="app-card-thumb"></div>
+      <div class="app-card-body">
+        <h4>Captura del arte urbano del casco histórico gaditano</h4>
+        <span class="app-link">Abrir Galería →</span>
+      </div>
+    </a>
+
+    <!-- App 5 -->
+    <a href="https://experience.arcgis.com/experience/ce7d66290380459f9e73d5465c3aaee8" target="_blank" rel="noopener" class="app-card" style="--app-bg: url('app5.png');">
+      <div class="app-card-thumb"></div>
+      <div class="app-card-body">
+        <h4>Portal de denuncias de grafitis en Cádiz</h4>
+        <span class="app-link">Acceder al Portal →</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+</div>
+
+  <!-- APARTADO 3: JUEGOS -->
+  <div class="transferencia-bloque">
+    <h3>Juegos</h3>
+    <div class="juegos-container">
+      
+      <!-- Juego 1: Marismas y Flamencos -->
+      <article class="juego-card">
+        <h4>Marismas y Flamencos: Decide el destino de la Bahía de Cádiz</h4>
+        <p>Experiencia lúdico-educativa con mecánica de tablero original para revalorizar el patrimonio salinero de la Bahía de Cádiz. Los jugadores enfrentan dilemas de sostenibilidad/insostenibilidad mediante cartas y culminan decidiendo la renaturalización o reactivación de una salina abandonada.</p>
+        <!-- Carrusel Juego 1 -->
+        <div class="carrusel-container">
+          <div class="carrusel-track">
+            <img src="juego1.jpg" alt="Juego Marismas y Flamencos 1">
+            <img src="juego2.jpg" alt="Juego Marismas y Flamencos 2">
+            <img src="juego3.jpg" alt="Juego Marismas y Flamencos 3">
+            <img src="juego4.jpg" alt="Juego Marismas y Flamencos 4">
+          </div>
+        </div>
+      </article>
+
+      <!-- Juego 2: Cartas sobre la marisma -->
+      <article class="juego-card">
+        <h4>¡Las cartas sobre la marisma!</h4>
+        <p>Herramienta de metodología participativa para la gobernanza y resolución de conflictos en salinas y marismas protegidas. Permite a los actores locales visualizar, debatir y consensuar alternativas de gestión para salinas abandonadas.</p>
+        <!-- Carrusel Juego 2 -->
+        <div class="carrusel-container">
+          <div class="carrusel-track">
+            <img src="cartas1.jpg" alt="Juego Las Cartas sobre la Marisma 1">
+            <img src="cartas2.jpg" alt="Juego Las Cartas sobre la Marisma 2">
+            <img src="cartas3.jpg" alt="Juego Las Cartas sobre la Marisma 3">
+            <img src="cartas4.jpg" alt="Juego Las Cartas sobre la Marisma 4">
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- APARTADO 4: GALERÍA DE MAPAS -->
+  <div class="transferencia-bloque">
+    <h3>Galería de Mapas</h3>
+    <div class="mapas-galeria">
+      <a href="carto1.jpg" target="_blank" class="mapa-item">
+        <img src="carto1.jpg" alt="Mapa destacado 1">
+      </a>
+      <a href="carto2.jpg" target="_blank" class="mapa-item">
+        <img src="carto2.jpg" alt="Mapa destacado 2">
+      </a>
+      <a href="carto3.jpg" target="_blank" class="mapa-item">
+        <img src="carto3.jpg" alt="Mapa destacado 3">
+      <a href="carto4.jpg" target="_blank" class="mapa-item">
+        <img src="carto4.jpg" alt="Mapa destacado 4">
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- Sección Contacto -->
 <section id="contacto" class="tab-section">
