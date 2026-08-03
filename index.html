@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curro Vázquez Pinillos | Web Académica</title>
+  
+  <!-- Tipografía académica elegante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0d5c63;       /* Turquesa oscuro principal */
+      --primary-hover: #147982;
+      --accent-soft: #e8f3f4;         /* Turquesa muy suave para hovers */
+      --bg-color: #f7f9f9;            /* Fondo grácil */
+      --card-bg: #ffffff;
+      --text-main: #2c3e50;
+      --text-muted: #5a6b7c;
+      --border-color: #e2e8f0;
+      --font-heading: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.7;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    /* --- CABECERA Y NAVEGACIÓN --- */
+    header {
+      background-color: #ffffff;
+      border-bottom: 2px solid var(--accent-soft);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(13, 92, 99, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .logo-img {
+      transform: scale(1.05);
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--primary-color);
+    }
+
+    /* Navegación por píldoras estilo moderno */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 6px;
+      align-items: center;
+    }
+
+    nav ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active-link {
+      color: var(--primary-color);
+      background-color: var(--accent-soft);
+    }
+
+    /* --- HERO PORTADA PERSONALIZADA --- */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(13, 92, 99, 0.88), rgba(6, 43, 47, 0.92)), 
+                  url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1600&auto=format&fit=crop'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      border-bottom: 4px solid var(--primary-color);
+      position: relative;
+    }
+
+    .hero-banner h1 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      font-weight: 500;
+      color: #b2e0e4;
+    }
+
+    /* --- CONTENIDO PRINCIPAL --- */
+    main {
+      max-width: 1250px;
+      margin: -2rem auto 4rem auto; /* Sube ligeramente sobre el banner */
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .tab-section {
+      display: none;
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .tab-section.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #4a5568;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: #4a5568;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      background-color: #ffffff;
+    }
+
+    /* Responsivo para móviles */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-banner h1 {
+        font-size: 1.7rem;
+      }
+    }
+    /* Estilos para el nuevo Inicio */
+    .intro-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #334155;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 2.5rem 0;
+    }
+
+    /* Contenedor del logo grande al final */
+    .large-logo-container {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .large-logo {
+      height: 200px; /* Tamaño del logo ampliado */
+      width: auto;
+      filter: drop-shadow(0 4px 12px rgba(13, 92, 99, 0.15));
+      transition: transform 0.3s ease;
+    }
+
+    .large-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .news-placeholder {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    /* --- LÍNEA DEL TIEMPO EDITORIAL DE NOTICIAS --- */
+    .news-timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 3rem auto 1rem auto;
+      padding: 1rem 0;
+    }
+
+    /* Línea vertical central */
+    .news-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-color) 0%, var(--border-color) 100%);
+      transform: translateX(-50%);
+    }
+
+    /* Cada bloque de noticia */
+    .news-card {
+      position: relative;
+      width: 50%;
+      padding: 0 2.5rem 3rem 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Alternancia izquierda / derecha */
+    .news-card:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    .news-card:nth-child(even) {
+      left: 50%;
+      padding: 0 0 3rem 2.5rem;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    /* Punto o nodo en la línea central */
+    .news-card::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background-color: #ffffff;
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .news-card:nth-child(odd)::after {
+      right: -9px;
+    }
+
+    .news-card:nth-child(even)::after {
+      left: -9px;
+    }
+
+    .news-card:hover::after {
+      background-color: var(--primary-color);
+      transform: scale(1.3);
+    }
+
+    /* Imagen integrada */
+    .news-image-container {
+      width: 100%;
+      max-width: 420px;
+      height: 180px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      background-color: var(--accent-soft);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .news-card:hover .news-image {
+      transform: scale(1.04);
+    }
+
+    /* Textos */
+    .news-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .news-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .news-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .news-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .news-link:hover {
+      border-color: var(--primary-color);
+    }
+
+    /* Adaptación perfecta a teléfonos / pantallas estrechas */
+    @media (max-width: 768px) {
+      .news-timeline::before {
+        left: 15px;
+      }
+
+      .news-card,
+      .news-card:nth-child(odd),
+      .news-card:nth-child(even) {
+        width: 100%;
+        left: 0 !important;
+        padding: 0 0 2.5rem 2.5rem !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .news-card::after,
+      .news-card:nth-child(odd)::after,
+      .news-card:nth-child(even)::after {
+        left: 7px !important;
+        right: auto !important;
+      }
+
+      .news-image-container {
+        max-width: 100%;
+      }
+    }
+   /* Estilos del diseño de franjas horizontales */
+
+    .fullwidth-skills-wrapper {
+
+      margin-top: 3.5rem;
+
+      width: 100%;
+
+    }
+
+
+    .skills-title-main {
+
+      text-align: center;
+
+      font-family: var(--font-heading);
+
+      color: var(--primary-color);
+
+      font-size: 1.5rem;
+
+      margin-bottom: 2rem;
+
+    }
+
+
+    /* Estructura general de cada Franja */
+
+    .skill-band {
+
+      width: 100%;
+
+      padding: 2.5rem 1.5rem;
+
+      margin-bottom: 0.8rem;
+
+      border-radius: 8px;
+
+      text-align: center;
+
+      box-sizing: border-box;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+    }
+
+
+    /* Fondos oscuros alternos como en la imagen de muestra */
+
+    .band-dark1 {
+
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+
+    }
+
+
+    .band-dark2 {
+
+      background: linear-gradient(180deg, #0d5c63 0%, #07383c 100%);
+
+    }
+
+
+    .band-dark3 {
+
+      background: linear-gradient(180deg, #2b3a4a 0%, #1a232c 100%);
+
+    }
+
+
+    .band-subtitle {
+
+      display: inline-block;
+
+      font-size: 0.85rem;
+
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      color: #94a3b8;
+
+      margin-bottom: 1.8rem;
+
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+      padding-bottom: 0.4rem;
+
+    }
+
+
+    /* Contenedor flexible de los iconos en la franja */
+
+    .band-items {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: flex-start;
+
+      gap: 3rem;
+
+      flex-wrap: wrap;
+
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+    }
+
+
+    /* Ítem individual (Icono + Título + Descripción) */
+
+    .band-item {
+
+      flex: 1;
+
+      min-width: 200px;
+
+      max-width: 280px;
+
+      text-decoration: none;
+
+      color: #ffffff !important;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      transition: transform 0.3s ease;
+
+    }
+
+
+    .band-item:hover {
+
+      transform: translateY(-50px);
+
+    }
+
+
+    /* Esfera/Círculo para el icono */
+
+    .icon-circle {
+
+      width: 60px;
+
+      height: 60px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.1);
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 1.8rem;
+
+      margin-bottom: 1rem;
+
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+    }
+
+
+    .band-item h4 {
+
+      font-size: 1.05rem;
+
+      font-weight: 600;
+
+      color: #ffffff;
+
+      margin-bottom: 0.4rem;
+
+    }
+
+
+    .band-item p {
+
+      font-size: 0.82rem;
+
+      color: #cbd5e1;
+
+      line-height: 1.4;
+
+      margin: 0;
+
+      text-align: center;
+
+    }
+
+
+    @media (max-width: 768px) {
+
+      .band-items {
+
+        gap: 1.8rem;
+
+      }
+
+    } 
+    /* --- ESTRUCTURA A 2 COLUMNAS (Texto a la izq, Carrusel a la dcha) --- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px; /* Primera columna flexible, carrusel de 380px */
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- ESTILOS DEL CARRUSEL --- */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      background-color: var(--accent-soft);
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-slide.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Botones anterior/siguiente */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(13, 92, 99, 0.6);
+      color: white;
+      border: none;
+      padding: 0.6rem 0.9rem;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      z-index: 5;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(13, 92, 99, 0.9);
+    }
+
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    /* Indicadores / Puntos del carrusel */
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .dot.active, .dot:hover {
+      background: #ffffff;
+    }
+
+    /* Adaptación a dispositivos móviles */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .carousel-container {
+        height: 300px;
+      }
+    }
+    .band-icon-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain; /* Mantiene la proporción del logo sin deformarlo */
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover opcional para la imagen */
+.band-item:hover .band-icon-img {
+  transform: scale(1.1);
+}
+/* --- ESTILOS DE PUBLICACIONES --- */
+.pub-category {
+  margin-bottom: 2.5rem;
+}
+
+.pub-category h3 {
+  font-size: 1.3rem;
+  color: #1a365d; /* Ajusta a tu color primario */
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pub-card {
+  display: flex;
+  gap: 1.2rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pub-badge {
+  background-color: #edf2f7;
+  color: #4a5568;
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+.pub-badge.year-2026 {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border: 1px solid #bee3f8;
+}
+
+.pub-content {
+  flex: 1;
+}
+
+.pub-authors {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 0.2rem;
+}
+
+.pub-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.pub-journal, .pub-book {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 0.6rem;
+}
+
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #3182ce;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pub-link:hover {
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .pub-card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* --- LÍNEAS Y CAJETILLAS DE PROYECTOS --- */
+.project-line {
+  margin-bottom: 3rem;
+}
+
+.line-title {
+  font-size: 1.3rem;
+  color: #1a365d;
+  border-left: 4px solid #3182ce;
+  padding-left: 0.8rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-img-wrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.project-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.badge-more {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.project-info {
+  padding: 1.2rem;
+  flex-grow: 1;
+}
+
+.project-info h4 {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.project-short-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* --- BLOQUE DETALLADO (OCULTO/DESPLEGABLE) --- */
+.project-details {
+  display: none; /* Se oculta inicialmente */
+  padding: 0 1.2rem 1.2rem 1.2rem;
+  font-size: 0.9rem;
+  color: #334155;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.project-details.active {
+  display: block; /* Se muestra al pulsar */
+}
+
+.project-details hr {
+  border: 0;
+  border-top: 1px dashed #cbd5e1;
+  margin: 0.8rem 0;
+}
+
+.project-details h5 {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Configuración de la tarjeta */
+.project-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  background: #fff;
+}
+
+/* Ocultar contenido por defecto con animación */
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* Evitar que los enlaces detengan o interfieran el clic en la tarjeta */
+.project-details a {
+  cursor: pointer;
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* Estilos de la tabla dentro del proyecto */
+.table-responsive {
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f4f6f8;
+}
+
+/* Galería de imágenes/mapas */
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.maps-grid img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+/* 1. Limpiamos el aspecto feo por defecto de <details> y <summary> */
+details.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+details.project-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Quitamos la flecha por defecto de Google Chrome, Safari y Firefox */
+details.project-card > summary {
+  list-style: none;
+  outline: none;
+}
+details.project-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 2. Estilizamos el desplegable de información */
+.project-details-content {
+  padding: 25px;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Suaviza la aparición del texto */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para las tablas de datos */
+.project-details-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background: white;
+  font-size: 0.9em;
+}
+
+.project-details-content th, 
+.project-details-content td {
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.project-details-content th {
+  background-color: #f0f4f8;
+  color: #333;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header>
+    <div class="nav-container">
+      <div class="brand" onclick="showSection('inicio')">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="brand-name">Curro Vázquez Pinillos</span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a id="link-inicio" class="active-link" onclick="showSection('inicio')">Inicio</a></li>
+          <li><a id="link-sobre-mi" onclick="showSection('sobre-mi')">Sobre mí</a></li>
+          <li><a id="link-publicaciones" onclick="showSection('publicaciones')">Publicaciones</a></li>
+          <li><a id="link-proyectos" onclick="showSection('proyectos')">Proyectos</a></li>
+          <li><a id="link-transferencia" onclick="showSection('transferencia')">Transferencia</a></li>
+          <li><a id="link-contacto" onclick="showSection('contacto')">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Portada -->
+  <div id="hero" class="hero-banner">
+    <h1>Francisco José (Curro) Vázquez Pinillos</h1>
+    <p class="hero-subtitle">Investigador postdoctoral</p>
+  </div>
+
+  <!-- Contenido -->
+  <main>
+    
+    <!-- Inicio -->
+    <section id="inicio" class="tab-section active">
+      
+      <!-- 1. Breve introducción -->
+      <h2>¡Hola! 👋</h2>
+      <p class="intro-text">
+        Soy <strong>Curro</strong>, geógrafo e investigador en el grupo de <em>Planificación y Gestión Litoral</em> de la <strong>Universidad de Cádiz</strong>. 
+        Dedico mi labor investigadora a la gestión costera en Iberoamérica 🌊, la adaptación del litoral al cambio climático —con especial atención a la Bahía de Cádiz— y el análisis de fenómenos emergentes en la geografía urbana 🏙️.
+      </p>
+      <p class="intro-text">
+        He diseñado este espacio para compartir mis resultados académicos, proyectos en curso e iniciativas de transferencia del conocimiento. <strong>¡Te doy la bienvenida! ✨</strong>
+      </p>
+
+      <hr class="section-divider">
+
+      <!-- 2. Noticias -->
+      <h2>Noticias 📰</h2>
+      <div class="news-timeline">
+
+        <!-- Noticia 0 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia0.png" alt="Investigación de grafitis en el Diario de Cádiz" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Agosto 2026</span>
+            <h3 class="news-title">Difusión en el Diario de Cádiz sobre el estudio del impacto de los grafitis en el casco histórico de Cádiz</h3>
+            <p class="news-description">
+              Publicación del trabajo de evaluación y mapeo cartográfico de los grafitis.
+            </p>
+            <a href="https://www.diariodecadiz.es/noticias-provincia-cadiz/centro-cadiz-grafitis_0_2007609913.html" target="_blank" class="news-link">Leer noticia completa →</a>
+          </div>
+        </article>
+
+        <!-- Noticia 1 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia1.png" alt="Mención especial ESRI" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Junio 2026</span>
+            <h3 class="news-title">Mención especial al mejor TFM GIS Online (ESRI)</h3>
+            <p class="news-description">
+              Reconocimiento otorgado por ESRI al Trabajo de Fin de Máster GIS Online 2025–2026.
+            </p>
+            <a href="https://d118.uca.es/noticia/premio-al-mejor-trabajo-de-fin-del-master-esri-a-francisco-jose-vazquez-pinillos/" target="_blank" class="news-link">Leer noticia completa →</a>
+          </div>
+        </article>
+
+        <!-- Noticia 2 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia2.png" alt="Tercer Premio Nacional Fin de Carrera" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Julio 2025</span>
+            <h3 class="news-title">Tercer Premio Nacional de Fin de Carrera</h3>
+            <p class="news-description">
+              Galardón otorgado por el Ministerio de Ciencia, Innovación y Universidades.
+            </p>
+          </div>
+        </article>
+
+        <!-- Noticia 3 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia3.png" alt="Proyecto REWRITE" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Enero 2025</span>
+            <h3 class="news-title">Investigador Postdoctoral en el Proyecto Europeo REWRITE</h3>
+            <p class="news-description">
+              Inicio del contrato en el proyecto <em>REWilding and Restoration of InterTidal sediment Ecosystems for carbon sequestration, climate adaptation and biodiversity support.</em>
+            </p>
+            <a href="https://rewriteproject.eu/" target="_blank" class="news-link">Sitio web del proyecto →</a>
+          </div>
+        </article>
+
+        <!-- Noticia 4 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia4.png" alt="Cotutela Internacional Doctorado" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Diciembre 2024</span>
+            <h3 class="news-title">Primera Cotutela Internacional de Doctorado en la ULAGOS</h3>
+            <p class="news-description">
+              Primer estudiante en obtener la cotutela internacional de doctorado entre la Universidad de Los Lagos (Chile) y la Universidad de Cádiz (España).
+            </p>
+            <a href="https://ceder.ulagos.cl/estudiante-logra-doble-grado-de-doctorado-en-ulagos-y-universidad-de-cadiz-espana/" target="_blank" class="news-link">Leer noticia completa →</a>
+          </div>
+        </article>
+
+        <!-- Noticia 5 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia5.jpg" alt="Contrato FPU" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Noviembre 2020</span>
+            <h3 class="news-title">Contrato Predoctoral FPU</h3>
+            <p class="news-description">
+              Inicio del contrato para la Formación de Profesorado Universitario (FPU), adscrito al Departamento de Historia, Geografía y Filosofía de la Universidad de Cádiz.
+            </p>
+          </div>
+        </article>
+
+        <!-- Noticia 6 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia6.jpg" alt="Premio Extraordinario Máster UCA" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Septiembre 2020</span>
+            <h3 class="news-title">Premio Extraordinario Fin de Máster (UCA)</h3>
+            <p class="news-description">
+              Otorgado por la Universidad de Cádiz al mejor expediente del Máster en Gestión Integrada de Áreas Litorales.
+            </p>
+          </div>
+        </article>
+
+        <!-- Noticia 7 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia7.jpg" alt="Premio Extraordinario US" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Noviembre 2019</span>
+            <h3 class="news-title">Premio Extraordinario Fin de Carrera (US)</h3>
+            <p class="news-description">
+              Reconocimiento de la Universidad de Sevilla al mejor expediente del Grado en Geografía y Gestión del Territorio.
+            </p>
+            <a href="https://tv.us.es/media/PREMIOS+EXTRAORDINARIOS+FIN+DE+ESTUDIOS.+2018+2019%2C+2029+2020%2C+2020+2021%2C+2021+2022/1_97j8e4sq" target="_blank" class="news-link">Ver ceremonia →</a>
+          </div>
+        </article>
+
+        <!-- Noticia 8 -->
+        <article class="news-card">
+          <div class="news-image-container">
+            <img src="noticia8.png" alt="Premio SEDEA" class="news-image">
+          </div>
+          <div class="news-content">
+            <span class="news-date">Septiembre 2019</span>
+            <h3 class="news-title">Primer Premio Nacional de Excelencia Académica (SEDEA)</h3>
+            <p class="news-description">
+              Distinción al mejor graduado en Geografía de España según la Sociedad Española de Excelencia Académica.
+            </p>
+            <a href="https://www.portaldecadiz.com/mas-de-cadiz/universidad/56524-el-vecino-de-cadiz-francisco-jose-vazquez-pinillos-gana-un-premio-de-excelencia-academica" target="_blank" class="news-link">Leer noticia completa del Portal de Cádiz →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- 3. Logo en tamaño grande al final -->
+      <div class="large-logo-container">
+        <img src="logo.png" alt="Logo Curro Vázquez Pinillos" class="large-logo">
+      </div>
+
+    </section>
+
+<!-- Sobre mí -->
+    <section id="sobre-mi" class="tab-section">
+      <h2>Sobre mí 🧭</h2>
+
+    <!-- Bloque superior horizontal -->
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="lead-paragraph">
+              Desde pequeño me apasionaban los mapas, así que, casi sin saberlo, estaba destinado a la geografía. Graduado en Geografía y Gestión del Territorio por la Universidad de Sevilla, publiqué mi primer artículo con una beca de colaboración y enfoqué mi TFG en el ascenso del nivel medio del mar en la Bahía de Cádiz. Esto me llevó al Máster en Gestión Integrada de Áreas Litorales (GIAL) en la Universidad de Cádiz.
+            </p>
+            <p>
+              Realicé mi doctorado en Cotutela Internacional entre la UCA y la Universidad de Los Lagos (Chile) 🇨🇱 para sentar las bases de una estrategia GIAL en la mágica isla de Chiloé, para lo que me sumé al Grupo de Planificación y Gestión Litoral. Tras ello, fui investigador postdoctoral en el proyecto europeo <strong>REWRITE</strong> 🇪🇺  y, en 2026, me concedieron el contrato postdoctoral <strong>Juan de la Cierva</strong> en la Universidad de Sevilla.
+            </p>
+            <p>
+              Mi pasión por la cartografía me llevó a cursar el Máster en SIG de ESRI. Como resultado, he logrado desarrollar una investigación multidisciplinar entre América y Europa que he podido ilustrar en mapas. Mientras tanto, disfruto de una nueva vocación: la <strong>transferencia del conocimiento</strong> mediante juegos, aplicaciones interactivas y charlas para todos los públicos.
+            </p>
+          </div>
+
+        <!-- Carrusel de fotos (Directamente en el grid) -->
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="carr2.jpg" alt="Curro Vázquez en campo">
+    </div>
+    <div class="carousel-slide">
+      <img src="carr1.jpg" alt="Investigación y divulgación">
+    </div>
+    <div class="carousel-slide">
+      <img src="carr3.jpg" alt="Trabajo cartográfico">
+    </div>
+    <div class="carousel-slide">
+      <img src="carr4.jpg" alt="Trabajo cartográfico">
+    </div>
+    <div class="carousel-slide">
+      <img src="carr5.jpg" alt="Trabajo cartográfico">
+    </div>
+    <div class="carousel-slide">
+      <img src="carr6.jpg" alt="Trabajo cartográfico">
+    </div>
+    <div class="carousel-slide">
+      <img src="Noticia0.png" alt="Trabajo cartográfico">
+    </div>
+
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+    <div class="carousel-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+  </div>
+</div> <!-- Cierre del about-grid -->
+
+      <!-- --- BLOQUES DE COMPETENCIAS ESTILO FRANJAS HORIZONTALES (Como la imagen) --- -->
+      <div class="fullwidth-skills-wrapper">
+        <h3 class="skills-title-main">Áreas de dominio & herramientas SIG</h3>
+
+        <!-- FRANJA 1: Software SIG (Desktop, Cloud, Open Source) -->
+        <div class="skill-band band-dark1">
+          <span class="band-subtitle">Análisis SIG</span>
+          <div class="band-items">
+            
+            <a href="https://www.esri.com/es-es/arcgis/products/arcgis-pro/overview" target="_blank" class="band-item">
+              <img src="arcgispro.png" alt="ArcGIS Pro" class="band-icon-img">
+              <h4>ArcGIS Pro</h4>
+              <p>Software Desktop GIS: análisis, tratamiento de datos y generación de mapas.</p>
+            </a>
+
+            <a href="https://www.esri.com/es-es/arcgis/products/arcgis-online/overview" target="_blank" class="band-item">
+              <img src="arcgisonline.png" alt="ArcGIS Pro" class="band-icon-img">
+              <h4>ArcGIS Online</h4>
+              <p>Plataforma Web GIS: Mapas en la nube y generación de Web Apps.</p>
+            </a>
+
+            <a href="https://qgis.org/" target="_blank" class="band-item">
+              <img src="qgis.webp" alt="ArcGIS Pro" class="band-icon-img">
+              <h4>QGIS</h4>
+              <p>GIS libre de escritorio: análisis vectorial, ráster y automatización.</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- FRANJA 2: Captura de datos y Campo -->
+        <div class="skill-band band-dark2">
+          <span class="band-subtitle">Recopilación de información de campo</span>
+          <div class="band-items">
+            
+            <div class="band-item">
+              <div class="icon-circle">📱</div>
+              <h4>Toma de datos en campo</h4>
+              <p>Generación de apps de campo en dispositivos móviles para toma de datos rápida.</p>
+            </div>
+
+            <div class="band-item">
+              <div class="icon-circle">💻</div>
+              <h4>Aplicaciones web interactivas</h4>
+              <p>Creación de visores cartográficos web para la transferencia del conocimiento a la ciudadanía.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FRANJA 3: Redacción y Diseño Cartográfico -->
+        <div class="skill-band band-dark3">
+          <span class="band-subtitle">Publicaciones, informes y cartografía</span>
+          <div class="band-items">
+            
+            <div class="band-item">
+              <div class="icon-circle">🗺️</div>
+              <h4>Diseño cartográfico</h4>
+              <p>Generación de mapas temáticos con valor estético y rigor técnico.</p>
+            </div>
+
+            <div class="band-item">
+              <div class="icon-circle">✍️</div>
+              <h4>Redacción científica y técnica</h4>
+              <p>Elaboración de artículos en revistas de impacto e informes basados en el territorio.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Publicaciones -->
+    <section id="publicaciones" class="tab-section">
+  <div class="section-header">
+    <h2>Publicaciones Académicas</h2>
+  </div>
+
+  <!-- CATEGORÍA 1: ARTÍCULOS EN REVISTAS CIENTÍFICAS -->
+  <div class="pub-category">
+    <h3><i class="fas fa-journal-whills"></i> Artículos en revistas</h3>
+    
+    <div class="pub-card">
+      <span class="pub-badge year-2026">2026</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong>, Chica Ruiz, J. A. y Barragán Muñoz, J. M.</p>
+        <p class="pub-title">Climate Change in Chiloé (Chile): Trends, Coastal Zones and Socio-Ecological Conflicts.</p>
+        <p class="pub-journal"><em>Island Studies Journal</em>, 21(1), pp. 14–39.</p>
+        <a href="https://doi.org/10.24043/001c.138657" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2024</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong> y Barragán Muñoz, J. M.</p>
+        <p class="pub-title">Progress and challenges for the establishment of a sustainable blue economy in Chiloe (Chile): exploring the connections of a socio-ecological system.</p>
+        <p class="pub-journal"><em>Ocean & Coastal Management</em>, 257, 107323.</p>
+        <a href="https://doi.org/10.1016/j.ocecoaman.2024.107323" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2024</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong> y Chica Ruiz, J. A.</p>
+        <p class="pub-title">Coastal management and climate change on the island and the sea of Chiloé (Chile): An evaluation of policies, regulations, and instruments.</p>
+        <p class="pub-journal"><em>Environmental Science and Policy</em>, 156, 103758.</p>
+        <a href="https://doi.org/10.1016/j.envsci.2024.103758" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2023</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong>, Barragán Muñoz, J. M., Ther Ríos, F. y Martínez González, G. O.</p>
+        <p class="pub-title">Diagnosis of the coastal management model in Chile: The island and the sea of Chiloé governance.</p>
+        <p class="pub-journal"><em>Regional Studies in Marine Science</em>, 68, 103242.</p>
+        <a href="https://doi.org/10.1016/j.rsma.2023.103242" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2023</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong>, Chica Ruiz, J. A. y Martínez González, G. O.</p>
+        <p class="pub-title">La gestión costera en la isla y el mar de Chiloé (Chile): un diagnóstico de los problemas operativos desde la GIAL y su relación con el cambio climático.</p>
+        <p class="pub-journal"><em>Revista de Geografía Norte Grande</em>, 85, pp. 1–27.</p>
+        <a href="http://dx.doi.org/10.4067/S0718-34022023000200114" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2023</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong>, Barragán Muñoz, J. M. y Ther Ríos, F.</p>
+        <p class="pub-title">Delimiting coastal zones for integrated management: The case of the island and the sea of Chiloé (Chile).</p>
+        <p class="pub-journal"><em>Marine Policy</em>, 150, 105535.</p>
+        <a href="https://doi.org/10.1016/j.marpol.2023.105535" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2021</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong> y Marchena Gómez, M. J.</p>
+        <p class="pub-title">Territorial impacts of sea-level rise in marsh environments. The case of the Bay of Cádiz, Spain.</p>
+        <p class="pub-journal"><em>Cuadernos de Investigación Geográfica</em>, 47, pp. 523–543.</p>
+        <a href="https://doi.org/10.18172/cig.4531" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2019</span>
+      <div class="pub-content">
+        <p class="pub-authors">Marchena Gómez, M. J., Alegría Fernández, J. L. y <strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">Burocracia urbanística, ciclo económico y urbanismo eficaz y productivo en España. Los casos andaluz y valenciano.</p>
+        <p class="pub-journal"><em>Ciudad y Territorio: Estudios Territoriales</em>, 200, pp. 265–280.</p>
+        <a href="https://recyt.fecyt.es/index.php/CyTET/article/view/76730" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver Publicación</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 2: CAPÍTULOS DE LIBRO -->
+  <div class="pub-category">
+    <h3><i class="fas fa-book"></i> Capítulos de libro</h3>
+
+    <div class="pub-card">
+      <span class="pub-badge">2025</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong>, Barragán Muñoz, J. M. y Chica Ruiz, J. A.</p>
+        <p class="pub-title">Towards a sustainable blue economy in the coastal areas of the island and the sea of Chiloé (Chile).</p>
+        <p class="pub-book">En A. Martín-Navarro, S. Zebda y C. Taskopru (eds.), <em>International Congress on Sustainable Social Development. An Approach to the Future of Society</em> (pp. 192–194). <strong>Dykinson</strong>.</p>
+        <a href="https://doi.org/10.14679/4206" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2024</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">Evaluando el estado de los servicios ecosistémicos en la Patagonia chilena: un modelo de desarrollo alejado de la economía azul.</p>
+        <p class="pub-book">En M. Díez Ojeda et al. (Coords.), <em>Sobre la educación científica y el cuidado de la casa común: necesidades y perspectivas</em> (pp. 361–383). <strong>Dykinson</strong>.</p>
+        <a href="https://bit.ly/3ALEo5m" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Enlace al capítulo</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2024</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">Identificando las zonas costeras vulnerables a los efectos del cambio climático en las áreas litorales de la isla y el mar de Chiloé (Chile).</p>
+        <p class="pub-book">En M. Díez Ojeda et al. (Coords.), <em>Sobre la educación científica y el cuidado de la casa común: necesidades y perspectivas</em> (pp. 384–407). <strong>Dykinson</strong>.</p>
+        <a href="https://bit.ly/46Zt3L2" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Enlace al capítulo</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2024</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">Origen, evolución y futuro de la salmonicultura en el mar interior de Chiloé (Chile).</p>
+        <p class="pub-book">En S. Olivero Guidobono (Coord.), <em>Materiales, técnicas, estrategias y resultados. Planteamientos humanos ante los retos socio-culturales</em> (pp. 1367–1392). <strong>Dykinson</strong>.</p>
+        <a href="https://bit.ly/3AxvMiV" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Enlace al capítulo</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2023</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">El origen subyacente de los problemas de la gobernanza costera chilena: el caso de Chiloé.</p>
+        <p class="pub-book">En M. Bermúdez Vázquez (Coord.), <em>Caminos de reflexión y pensamiento: análisis desde la filosofía hasta los ODS</em> (pp. 674–694). <strong>Dykinson</strong>.</p>
+        <a href="https://bit.ly/3SZ2lg7" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Enlace al capítulo</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2023</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">El estrés hídrico en el archipiélago de Chiloé (Chile): ¿un problema de cambio climático?</p>
+        <p class="pub-book">En M. Bermúdez Vázquez (Coord.), <em>Caminos de reflexión y pensamiento: análisis desde la filosofía hasta los ODS</em> (pp. 436–459). <strong>Dykinson</strong>.</p>
+        <a href="https://bit.ly/3yPbZec" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Enlace al capítulo</a>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <span class="pub-badge">2021</span>
+      <div class="pub-content">
+        <p class="pub-authors">Marchena Gómez, M. J. y <strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">El mito de la “remunicipalización”, un exceso ideológico.</p>
+        <p class="pub-book">En M. J. Marchena (Coord.), <em>Enfoques sobre Administración local en España: el municipio como tercera parte del Estado</em> (pp. 63–107). <strong>Tirant lo Blanch</strong>, Madrid.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 3: TRABAJOS DE TITULACIÓN Y REPOSITORIOS -->
+  <div class="pub-category">
+    <h3><i class="fas fa-graduation-cap"></i> Otras publicaciones</h3>
+
+    <div class="pub-card">
+      <span class="pub-badge">2019</span>
+      <div class="pub-content">
+        <p class="pub-authors"><strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">La antropogénesis del cambio climático: el caso de la Bahía de Cádiz.</p>
+        <p class="pub-book"><em>Trabajo de Fin de Grado (TFG)</em>. Depósito de Investigación de la Universidad de Sevilla (idUS).</p>
+        <a href="https://idus.us.es/handle/11441/91711" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver en idUS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Proyectos -->
+<section id="proyectos" class="tab-section">
+  <div class="section-header">
+    <h2>Proyectos de Investigación</h2>
+    <p>Principales líneas de investigación:</p>
+  </div>
+
+  <!-- CONTENEDOR ENVOLVENTE: Obliga a que todo se apile verticalmente -->
+  <div style="display: block; width: 100%;">
+
+    <!-- LÍNEA 1 -->
+    <div class="project-line" style="margin-bottom: 40px;">
+      <h3 class="line-title"><i class="fas fa-water"></i> Línea 1: Gestión costera en la Bahía de Cádiz</h3>
+      
+      <div class="projects-grid">
+        <!-- PROYECTO 1: Ascenso del nivel medio del mar (Bahía de Cádiz) -->
+        <details class="project-card">
+          <summary style="cursor: pointer;">
+            <div class="project-img-wrapper">
+              <img src="proy_snmm.jpg" alt="Ascenso del nivel del mar en la Bahía de Cádiz">
+              <span class="badge-more"><i class="fas fa-plus"></i> Saber más</span>
+            </div>
+            <div class="project-info">
+              <h4>Proyección de ascenso del nivel medio del mar en la Bahía de Cádiz</h4>
+              <p class="project-short-desc">
+                Análisis y modelación de las afecciones territoriales del aumento del nivel del mar en entornos de marisma y otras zonas litorales vulnerables.
+              </p>
+            </div>
+          </summary>
+
+          <div class="project-details-content">
+            <p><strong>Resultados del proyecto:</strong><br>
+            El principal resultado académico derivado de este proyecto es la siguiente publicación:<br>
+            Vázquez Pinillos, F. J. y Marchena Gómez, M. J. (2021). <em>Territorial impacts of sea-level rise in marsh environments. The case of the Bay of Cádiz, Spain</em>. <strong>Cuadernos de Investigación Geográfica</strong>, 47(2), pp. 523–543. 
+            <a href="https://doi.org/10.18172/cig.4531" target="_blank" rel="noopener">doi.org/10.18172/cig.4531</a></p>
+
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 15px 0;">
+
+            <h5>Resumen del proyecto</h5>
+            <p>Este proyecto supuso mi primera investigación desarrollada desde cero como becario de colaboración. Constituye el primer estudio sistemático de proyección de ascenso del nivel medio del mar (SLR) ajustado específicamente al ámbito subregional de la Bahía de Cádiz. Las bases cartográficas y proyecciones generadas fueron utilizadas en el contexto del <strong>Ocean Hackathon 2025</strong>.</p>
+            
+            <ul>
+              <li><strong>Objetivo principal:</strong> Aplicar el criterio de regionalización para trasladar las proyecciones globales de cambio climático a escala local/subregional y deducir sus implicaciones territoriales, socioeconómicas y ambientales.</li>
+            </ul>
+
+            <h5>Mapas de proyección de ascenso del nivel medio del mar</h5>
+            <p>Cartografía elaborada para los distintos escenarios climáticos (RCP) y horizontes temporales analizados:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 20px 0;">
+              
+              <!-- Mapa 1: RCP 4.5 - 2050 -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 10px; border-radius: 8px; background: #fff;">
+                <img src="rcp4.550.png" alt="Mapa Proyección RCP 4.5 Año 2050" style="width: 100%; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-weight: bold; font-size: 0.9em; color: #333;">Escenario RCP 4.5 — 2050</p>
+              </div>
+
+              <!-- Mapa 2: RCP 4.5 - 2100 -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 10px; border-radius: 8px; background: #fff;">
+                <img src="rcp4.5100.png" alt="Mapa Proyección RCP 4.5 Año 2100" style="width: 100%; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-weight: bold; font-size: 0.9em; color: #333;">Escenario RCP 4.5 — 2100</p>
+              </div>
+
+              <!-- Mapa 3: RCP 8.5 - 2050 -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 10px; border-radius: 8px; background: #fff;">
+                <img src="rcp8.550.png" alt="Mapa Proyección RCP 8.5 Año 2050" style="width: 100%; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-weight: bold; font-size: 0.9em; color: #333;">Escenario RCP 8.5 — 2050</p>
+              </div>
+
+              <!-- Mapa 4: RCP 8.5 - 2100 -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 10px; border-radius: 8px; background: #fff;">
+                <img src="rcp8.5100.png" alt="Mapa Proyección RCP 8.5 Año 2100" style="width: 100%; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-weight: bold; font-size: 0.9em; color: #333;">Escenario RCP 8.5 — 2100</p>
+              </div>
+
+            </div>
+
+            <h5>Principales hallazgos</h5>
+            <ul>
+              <li><strong>Parque Natural Bahía de Cádiz:</strong> Reducción de la superficie emergida "no afectada" del 22 % actual a solo un 13 % en 2050 y un 7 % en 2100 (RCP4.5).</li>
+              <li><strong>Infraestructuras:</strong> Riesgo en vías principales (CA-33 y CA-35) y accesos entre Chiclana, Puerto Real y El Puerto de Santa María.</li>
+              <li><strong>Patrimonio y Ecosistemas:</strong> Afectación en la Isla del Trocadero, Fuerte de San Luis, flecha de Valdelagrana y casas salineras.</li>
+              <li><strong>Economía:</strong> Amenaza a la acuicultura, retroceso de playas turísticas y zonas industriales/universitarias colindantes.</li>
+            </ul>
+
+          </div>
+        </details>
+
+        <!-- PROYECTO 2: Proyecto REWRITE (Bahía de Cádiz) -->
+        <details class="project-card">
+          <summary style="cursor: pointer;">
+            <div class="project-img-wrapper">
+              <img src="carr5.jpg" alt="Proyecto REWRITE">
+              <span class="badge-more"><i class="fas fa-plus"></i> Saber más</span>
+            </div>
+            <div class="project-info">
+              <h4>REWRITE: Hacia la co-gestión de escenarios futuros en las salinas de la Bahía de Cádiz</h4>
+              <p class="project-short-desc">
+                Iniciativa enfocada en la gobernanza participativa y la sostenibilidad socioecológica de los espacios salineros de la bahía.
+              </p>
+            </div>
+          </summary>
+
+          <div class="project-details-content">
+            
+            <h5>Resumen del proyecto</h5>
+            <p>El proyecto europeo Horizon Europe <strong>REWRITE</strong> (<em>Rewilding and Restoration of Intertidal Sediment Ecosystems for Carbon Sequestration, Climate Adaptation and Biodiversity Support</em>) tiene como objetivo principal analizar las ventajas e inconvenientes de la aplicación de escenarios de <em>rewilding</em> (renaturalización) en humedales costeros.</p>
+            <p>La investigación cuenta con diez casos de estudio distribuidos entre Europa y Norteamérica. En el caso de estudio de la <strong>Bahía de Cádiz</strong>, la investigación se articula a través de tres equipos de trabajo interdisciplinares: el CSIC, el grupo de Ecología de la Universidad de Cádiz (UCA) y nuestro grupo de Ciencias Sociales (UCA).</p>
+
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
+            <h5>Líneas de trabajo y tareas destacadas</h5>
+
+            <!-- Tarea 1: Percepciones y Narrativas -->
+            <div style="margin-bottom: 25px;">
+              <h6>1. Percepciones de los actores locales sobre el <em>Rewilding</em></h6>
+              <p>Exploración de las narrativas del cambio a través de las percepciones de los actores clave del territorio, indagando específicamente en sus visiones y posicionamientos respecto al concepto de renaturalización de salinas, esteros y marismas en la Bahía de Cádiz.</p>
+              
+              <!-- Espacio para el Mapa en JPG -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="Renat.jpg" alt="Mapa de percepciones de actores locales" style="width: 100%; max-width: 800px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Zonas potencialmente renaturalizables según las percepciones de los actores locales.</p>
+              </div>
+            </div>
+
+            <!-- Tarea 2: L-MAL y Carrusel -->
+            <div style="margin-bottom: 25px;">
+              <h6>2. Coordinación del I Local Multi-Actor Laboratory (L-MAL)</h6>
+              <p>Coordinación y dinamización del primer taller participativo diseñado para co-diseñar el futuro de las salinas, esteros y marismas junto a los actores locales. La metodología participativa desarrollada en Cádiz fue replicada en el resto de los casos de estudio europeos del proyecto REWRITE.</p>
+              
+              <!-- Contenedor para imágenes / carrusel del L-MAL -->
+<div style="border: 1px solid #eee; padding: 10px; background: #fff; border-radius: 8px; margin-top: 15px;">
+  
+  <!-- Contenedor interno con scroll horizontal (efecto carrusel) -->
+  <div style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; scroll-behavior: smooth; padding-bottom: 5px;">
+    
+    <!-- Imagen 1 -->
+    <div style="flex: 0 0 100%; scroll-snap-align: center;">
+      <img src="lmal1.jpg" alt="Sesión participativa L-MAL 1" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+    
+    <!-- Imagen 2 -->
+    <div style="flex: 0 0 100%; scroll-snap-align: center;">
+      <img src="lmal3.jpg" alt="Sesión participativa L-MAL 2" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+    
+    <!-- Imagen 3 -->
+    <div style="flex: 0 0 100%; scroll-snap-align: center;">
+      <img src="lmal2.jpg" alt="Sesión participativa L-MAL 3" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+    
+  </div>
+  
+  <!-- Indicador visual para que el usuario sepa que puede deslizar -->
+  <p style="text-align: center; font-size: 0.8em; color: #888; margin: 8px 0 0 0;">
+    &larr; Desliza para ver más &rarr;
+  </p>
+
+</div>
+<p style="font-size: 0.85em; color: #666; font-style: italic; margin-top: 5px;">Fotografías de las actividades participativas del I L-MAL en la Bahía de Cádiz.</p>
+
+            <!-- Tarea 3: Juego de rol/gamificación -->
+            <div>
+              <h6>3. El juego "Marismas y Flamencos. Decide el destino de la Bahía de Cádiz"</h6>
+              <p>Diseño del juego didáctico y de toma de decisiones <strong>"Marismas y Flamencos. Decide el destino de la Bahía de Cádiz"</strong>, concebido como herramienta de concienciación y sensibilización para el público general sobre el estado socioecológico del Parque Natural y las distintas alternativas de gestión en las salinas abandonadas.</p>
+              
+              <!-- Espacio para Imagen del Juego -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="NEI.jpeg" alt="Juego Marismas y Flamencos" style="width: 100%; max-width: 600px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Materiales y tablero del juego participativo "Marismas y Flamencos".</p>
+              </div>
+            </div>
+
+          </div>
+        </details>
+      </div> <!-- CIERRE DE projects-grid (Faltaba este) -->
+    </div> <!-- CIERRE DE project-line (Faltaba este) -->
+
+  <!-- LÍNEA 2 -->
+    <div class="project-line" style="margin-bottom: 40px;">
+      <h3 class="line-title"><i class="fas fa-globe-americas"></i> Línea 2: Gestión Integrada de Áreas Litorales en Iberoamérica</h3>
+      
+      <div class="projects-grid">
+        <!-- Proyecto 3 -->
+        <details class="project-card">
+          <summary style="cursor: pointer;">
+            <div class="project-img-wrapper">
+              <img src="carr2.jpg" alt="GIAL en Chiloé">
+              <span class="badge-more"><i class="fas fa-plus"></i> Saber más</span>
+            </div>
+            <div class="project-info">
+              <h4>Hacia una GIAL en la isla y el mar de Chiloé (Chile)</h4>
+              <p class="project-short-desc">
+                Diagnóstico operativo y estratégico para la gobernanza costera y la adaptación al cambio climático en el archipiélago.
+              </p>
+            </div>
+          </summary>
+
+          <div class="project-details-content">
+            
+            <h5>Resumen de la tesis doctoral</h5>
+            <p>Este proyecto se corresponde con mi <strong>tesis doctoral</strong>, desarrollada entre noviembre de 2020 y diciembre de 2024 en régimen de cotutela internacional entre la Universidad de Cádiz (UCA) y la Universidad de Los Lagos (Chile), bajo la dirección de los doctores Juan Manuel Barragán y Francisco Ther.</p>
+            <p>La investigación logró la calificación de <em>Cum Laude</em> con Mención Internacional. Se desarrolló mediante la modalidad de compendio de artículos, teniendo como objetivo principal sentar las bases para una estrategia de <strong>Gestión Integrada de Áreas Litorales (GIAL)</strong> en la isla y el mar de Chiloé.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
+            <h5>Resultados y publicaciones científicas</h5>
+            <!-- Bloque 1 -->
+            <div style="margin-bottom: 25px;">
+              <h6>1. Delimitación de las zonas costeras</h6>
+              <p>Se propuso por primera vez una delimitación de las zonas costeras del archipiélago de Chiloé basada en criterios socioecológicos.</p>
+              <ul>
+                <li>Vázquez Pinillos, F. J., Barragán Muñoz, J. M. y Ther Ríos, F. (2023). Delimiting coastal zones for integrated management: The case of the island and the sea of Chiloé (Chile). <em><strong>Marine Policy</strong></em>, 150, 105535. <a href="https://doi.org/10.1016/j.marpol.2023.105535" target="_blank" rel="noopener">doi.org/10.1016/j.marpol.2023.105535</a></li>
+              </ul>
+              
+              <!-- Espacio para la imagen del Mapa de delimitación -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="delimitacion.jpg" alt="Mapa de delimitación de las zonas costeras de Chiloé" style="width: 100%; max-width: 600px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Mapa de delimitación de las zonas costeras de Chiloé bajo criterios socioecológicos.</p>
+              </div>
+            </div>
+
+            <!-- Bloque 2 -->
+            <div style="margin-bottom: 25px;">
+              <h6>2. Diagnóstico de los problemas operativos y evaluación de servicios ecosistémicos</h6>
+              <p>Estos trabajos exploran los problemas territoriales de Chiloé mediante la aplicación del enfoque DPSIR (Fuerzas Motrices, Presiones, Estado, Impactos y Respuestas) y la evaluación de los servicios ecosistémicos.</p>
+              <ul>
+                <li>Vázquez Pinillos, F. J., Chica Ruiz, J. A. y Martínez González, G. O. (2023). La gestión costera en la isla y el mar de Chiloé (Chile): un diagnóstico de los problemas operativos desde la GIAL y su relación con el cambio climático. <em><strong>Revista de Geografía Norte Grande</strong></em>, 85, pp. 1–27. <a href="http://dx.doi.org/10.4067/S0718-34022023000200114" target="_blank" rel="noopener">dx.doi.org/10.4067/S0718-34022023000200114</a></li>
+                <li>Vázquez Pinillos, F. J. y Barragán Muñoz, J. M. (2024). Progress and challenges for the establishment of a sustainable blue economy in Chiloe (Chile): exploring the connections of a socio-ecological system. <em><strong>Ocean & Coastal Management</strong></em>, 257, 107323. <a href="https://doi.org/10.1016/j.ocecoaman.2024.107323" target="_blank" rel="noopener">doi.org/10.1016/j.ocecoaman.2024.107323</a></li>
+              </ul>
+              
+              <!-- Espacio para el Diagrama de relaciones de impacto -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="ssee.png" alt="Diagrama de relaciones de impacto económico en Chiloé" style="width: 100%; max-width: 700px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Diagrama de relaciones de impacto entre las principales actividades económicas del ámbito.</p>
+              </div>
+            </div>
+
+            <!-- Bloque 3 -->
+            <div style="margin-bottom: 25px;">
+              <h6>3. Diagnóstico estratégico del modelo de gobernanza</h6>
+              <p>En estos artículos se realiza un diagnóstico estratégico diseñado para entender el origen subyacente de los conflictos territoriales. Para ello, se aplicó la metodología del <em>Decálogo para la GIAL</em> del Dr. Juan Manuel Barragán.</p>
+              <ul>
+                <li>Vázquez Pinillos, F. J., Barragán Muñoz, J. M., Ther Ríos, F. y Martínez González, G. O. (2023). Diagnosis of the coastal management model in Chile: The island and the sea of Chiloé governance. <em><strong>Regional Studies in Marine Science</strong></em>, 68, 103242. <a href="https://doi.org/10.1016/j.rsma.2023.103242" target="_blank" rel="noopener">doi.org/10.1016/j.rsma.2023.103242</a></li>
+                <li>Vázquez Pinillos, F. J. y Chica Ruiz, J. A. (2024). Coastal management and climate change on the island and the sea of Chiloé (Chile): An evaluation of policies, regulations, and instruments. <em><strong>Environmental Science and Policy</strong></em>, 156, 103758. <a href="https://doi.org/10.1016/j.envsci.2024.103758" target="_blank" rel="noopener">doi.org/10.1016/j.envsci.2024.103758</a></li>
+              </ul>
+
+              <!-- Espacio para el Diagrama del Decálogo -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="Decalogo.png" alt="Diagrama del Decálogo para la GIAL" style="width: 100%; max-width: 600px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Decálogo para la GIAL.</p>
+              </div>
+            </div>
+
+            <!-- Bloque 4 -->
+            <div>
+              <h6>4. Cambio climático y vulnerabilidad socioecológica</h6>
+              <p>Este trabajo final localiza y evalúa las zonas costeras del ámbito de estudio más vulnerables a los efectos del cambio climático, integrando en el análisis infraestructuras, equipamientos y otros elementos urbanos críticos.</p>
+              <ul>
+                <li>Vázquez Pinillos, F. J., Chica Ruiz, J. A. y Barragán Muñoz, J. M. (2026). Climate Change in Chiloé (Chile): Trends, Coastal Zones and Socio-Ecological Conflicts. <em><strong>Island Studies Journal</strong></em>, 21(1), pp. 14–39. <a href="https://doi.org/10.24043/001c.138657" target="_blank" rel="noopener">doi.org/10.24043/001c.138657</a></li>
+              </ul>
+
+              <!-- Espacio para el Mapa de zonas vulnerables -->
+              <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px;">
+                <img src="ZCBE.jpg" alt="Mapa de zonas vulnerables al cambio climático" style="width: 100%; max-width: 600px; height: auto; border-radius: 4px;">
+                <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Identificación de las zonas costeras vulnerables al cambio climático en Chiloé.</p>
+              </div>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+
+   <!-- LÍNEA 3 -->
+    <div class="project-line" style="margin-bottom: 40px;">
+      <h3 class="line-title"><i class="fas fa-city"></i> Línea 3: Fenómenos emergentes en la geografía urbana</h3>
+      
+      <div class="projects-grid">
+        <!-- Proyecto 4 -->
+        <details class="project-card">
+          <summary style="cursor: pointer;">
+            <div class="project-img-wrapper">
+              <img src="grafitis.png" alt="Impacto de grafitis en Cádiz">
+              <span class="badge-more"><i class="fas fa-plus"></i> Saber más</span>
+            </div>
+            <div class="project-info">
+              <h4>Evaluación del impacto de los grafitis y pintadas en el centro de Cádiz</h4>
+              <p class="project-short-desc">
+                Estudio geográfico del impacto visual, patrimonial y espacial de las pintadas en el casco histórico gaditano.
+              </p>
+            </div>
+          </summary>
+
+          <div class="project-details-content">
+            
+            <h5>Contexto y metodología</h5>
+            <p>Este proyecto se inició a raíz de mi Trabajo de Fin de Máster en Sistemas de Información Geográfica (SIG) de ESRI. El objetivo principal consistió en evaluar el impacto visual de los grafitis en el casco histórico de Cádiz.</p>
+            <p>La metodología de esta investigación se fundamentó en la recopilación exhaustiva de datos espaciales mediante la aplicación <strong>ArcGIS Field Maps</strong>. Este proceso de digitalización <em>in situ</em> requirió 31 jornadas de trabajo de campo para inventariar y georreferenciar <strong>más de 7.000 grafitis</strong> en el área de estudio.</p>
+
+            <!-- Espacio para el gráfico de sectores -->
+            <div style="text-align: center; border: 1px solid #e0e0e0; padding: 12px; border-radius: 8px; background: #fff; margin-top: 15px; margin-bottom: 25px;">
+              <img src="tiposgrafiti.png" alt="Distribución de grafitis según su tipología" style="width: 100%; max-width: 500px; height: auto; border-radius: 4px;">
+              <p style="margin-top: 8px; font-size: 0.85em; color: #666; font-style: italic;">Distribución de las intervenciones inventariadas según su tipología.</p>
+            </div>
+
+            <h5>Índice de Impacto Visual de Grafitis</h5>
+            <p>Previamente a la fase de campo, se diseñó una geodatabase estructurada con campos y dominios específicos destinados a aplicar una evaluación multicriterio a cada intervención. Esta evaluación se basó en seis variables determinantes:</p>
+            <ul>
+              <li>El tamaño de la intervención.</li>
+              <li>El estado de conservación de los grafitis.</li>
+              <li>La visibilidad.</li>
+              <li>El entorno urbano.</li>
+              <li>La naturaleza del mensaje.</li>
+              <li>El valor del soporte arquitectónico afectado.</li>
+            </ul>
+            <p>La inclusión de estos indicadores permitió formular el <strong>Índice de Impacto Visual de los Grafitis</strong>, cuyo análisis espacial posterior se materializó en la generación de diversos mapas de calor. Estas representaciones cartográficas sirvieron para evaluar tanto la densidad de distribución como la concentración del impacto a diferentes escalas urbanas (barrio, calle, manzana y edificio).</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+
+            <h5>Aplicaciones interactivas</h5>
+            <p>A partir de los resultados obtenidos, se diseñó un conjunto de aplicaciones orientadas a sensibilizar a la población sobre este fenómeno y proponer herramientas para mejorar el modelo de gestión municipal de pintadas.</p>
+            <p>Puedes explorar de forma interactiva todo el proyecto, los mapas resultantes y las aplicaciones diseñadas en el siguiente <strong>StoryMap</strong>:</p>
+
+            <!-- Iframe embebido del StoryMap de ArcGIS -->
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; margin-top: 15px; background: #f9f9f9;">
+              <iframe 
+                src="https://storymaps.arcgis.com/stories/1add021309ed425689f3b82e5a42566e" 
+                width="100%" 
+                height="600" 
+                frameborder="0" 
+                allowfullscreen 
+                allow="geolocation"
+                style="display: block;">
+              </iframe>
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div> <!-- CIERRE DEL CONTENEDOR ENVOLVENTE -->
+</section>
+
+    <!-- Transferencia -->
+    <section id="transferencia" class="tab-section">
+      <h2>Transferencia: descubre mapas, juegos y mucho más</h2>
+      <p>Espacio dedicado a compartir materiales interactivos, cartografía y recursos de divulgación científica.</p>
+    </section>
+
+    <!-- Sección Contacto -->
+<section id="contacto" class="tab-section">
+  <div class="section-header">
+    <h2>Contacto</h2>
+    <p>Puedes encontrarme en la Universidad de Cádiz o a través de mis perfiles de investigación y correo electrónico.</p>
+  </div>
+
+  <!-- Contenedor principal a dos columnas -->
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+    
+    <!-- Columna Izquierda: Información y Redes -->
+    <div style="flex: 1 1 350px; padding: 25px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 25px; color: #333; font-size: 1.3em; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px;">
+        Mis redes:
+      </h3>
+      
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1em;">
+        
+        <!-- Correo -->
+        <li style="margin-bottom: 15px;">
+          <a href="mailto:francisco.pinillos@uca.es" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px; transition: color 0.2s;">
+            <img src="correo.png" alt="Icono de correo" style="width: 25px; height: auto;">
+            francisco.pinillos@uca.es
+          </a>
+        </li>
+        
+        <!-- LinkedIn -->
+        <li style="margin-bottom: 15px;">
+          <a href="https://www.linkedin.com/in/franciscoj-v%C3%A1zquez-pinillos/" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
+            <img src="linkedin.webp" alt="Logo de LinkedIn" style="width: 25px; height: auto;">
+            LinkedIn
+          </a>
+        </li>
+        
+        <!-- ORCID -->
+        <li style="margin-bottom: 15px;">
+          <a href="https://orcid.org/0000-0001-5453-1163" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
+            <img src="orcid.webp" alt="Logo de ORCID" style="width: 25px; height: auto;">
+            ORCID
+          </a>
+        </li>
+        
+        <!-- ResearchGate -->
+        <li style="margin-bottom: 15px;">
+          <a href="https://www.researchgate.net/profile/Francisco-Vazquez-Pinillos?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImhvbWUiLCJwYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoiZ2xvYmFsSGVhZGVyIn19" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
+            <img src="rg.webp" alt="Logo de ResearchGate" style="width: 25px; height: auto;">
+            ResearchGate
+          </a>
+        </li>
+        
+        <!-- Academia.edu -->
+        <li style="margin-bottom: 15px;">
+          <a href="https://circulodelestrecho.academia.edu/FranciscoJos%C3%A9V%C3%A1zquezPinillos" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
+            <img src="academia.webp" alt="Logo de Academia.edu" style="width: 25px; height: auto;">
+            Academia.edu
+          </a>
+        </li>
+        
+        <!-- Google Scholar -->
+        <li>
+          <a href="https://scholar.google.com/citations?user=UP50IBcAAAAJ&hl=es" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
+            <img src="google.webp" alt="Logo de Google Scholar" style="width: 25px; height: auto;">
+            Google Scholar
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <!-- Columna Derecha: Mapa de Cádiz -->
+    <div style="flex: 1 1 400px; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; min-height: 350px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102434.9090623315!2d-6.33177726487224!3d36.51641324738596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dc6f5789498d5%3A0x6bba8761184ffbe3!2sC%C3%A1diz!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+        width="100%" 
+        height="100%" 
+        style="border:0; display: block;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- Cierre de sección con Logo Personal -->
+  <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+    <img src="Logo.png" alt="Logo personal de Francisco Vázquez Pinillos" style="max-width: 150px; height: auto;">
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Francisco José (Curro) Vázquez Pinillos. Todos los derechos reservados.</p>
+  </footer>
+
+ <script>
+  // --- NAVEGACIÓN ENTRE PESTAÑAS ---
+  function showSection(sectionId) {
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('.tab-section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Quitar clase activa de los enlaces
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => link.classList.remove('active-link'));
+
+    // Mostrar sección seleccionada
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      targetSection.classList.add('active');
+    }
+
+    // Activar enlace del menú correspondiente
+    const targetLink = document.getElementById(`link-${sectionId}`);
+    if (targetLink) {
+      targetLink.classList.add('active-link');
+    }
+
+    // Subir al inicio al cambiar de sección
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // --- LÓGICA DEL CARRUSEL ---
+  let slideIndex = 0;
+  let autoSlideTimer;
+
+  showSlides(slideIndex);
+  startAutoSlide(); // Iniciar reproducción automática
+
+  function moveSlide(n) {
+    showSlides(slideIndex += n);
+    resetAutoSlide(); // Reinicia el tiempo si el usuario hace clic
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+    resetAutoSlide(); // Reinicia el tiempo si el usuario hace clic
+  }
+
+  function showSlides(n) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    if (slides.length === 0) return;
+
+    // Control de bucle (si supera el final vuelve al inicio y viceversa)
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+
+    // Quitar la clase active de todas las imágenes y puntos
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    // Activar solo la imagen y punto correspondientes
+    slides[slideIndex].classList.add('active');
+    if (dots[slideIndex]) {
+      dots[slideIndex].classList.add('active');
+    }
+  }
+
+  // --- FUNCIONES PARA AUTO-AVANCE ---
+  function startAutoSlide() {
+    // Cambia de imagen cada 4000 ms (4 segundos)
+    autoSlideTimer = setInterval(() => {
+      moveSlide(1);
+    }, 4000);
+  }
+
+  function resetAutoSlide() {
+    // Limpia el temporizador actual y lo vuelve a arrancar de cero
+    clearInterval(autoSlideTimer);
+    startAutoSlide();
+  }
+</script>
+
+<script>
+  function toggleProject(id) {
+    const details = document.getElementById(id);
+    const card = details.closest('.project-card');
+    
+    // Cambia el estado de visibilidad al hacer clic
+    if (details.style.maxHeight && details.style.maxHeight !== "0px") {
+      details.style.maxHeight = "0px";
+      details.style.opacity = "0";
+      card.classList.remove('is-open');
+    } else {
+      details.style.maxHeight = details.scrollHeight + "px";
+      details.style.opacity = "1";
+      card.classList.add('is-open');
+    }
+  }
+</script>
