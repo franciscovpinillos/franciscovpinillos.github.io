@@ -1217,6 +1217,65 @@ details.project-card > summary::-webkit-details-marker {
     min-height: 280px;
   }
 }
+/* ==========================================
+   AJUSTES EXCLUSIVOS PARA MÓVIL (MAX-WIDTH: 768PX)
+   ========================================== */
+@media (max-width: 768px) {
+
+  /* --- PROYECTOS RESPONSIVE --- */
+  .projects-grid {
+    grid-template-columns: 1fr !important; /* Fuerza 1 sola columna en móvil */
+    gap: 1.5rem !important;
+    padding: 0 0.5rem; /* Margen lateral mínimo para no apretar */
+  }
+
+  .project-card {
+    width: 100% !important;
+    height: auto !important; /* Permite que la tarjeta crezca al desplegar información */
+    overflow: visible !important; /* Evita que las imágenes o el texto se corten */
+  }
+
+  .project-img-wrapper {
+    height: auto !important; /* Cancela alturas fijas que comprimen la foto */
+    aspect-ratio: 16 / 9; /* Mantienen siempre la proporción perfecta */
+    max-height: 220px;
+    width: 100%;
+  }
+
+  .project-img-wrapper img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important; /* La foto se escala sin deformarse ni cortarse feo */
+  }
+
+  .project-info {
+    padding: 1rem !important; /* Menos relleno interno para dar espacio al texto */
+  }
+
+
+  /* --- CONTACTO Y REDES RESPONSIVE --- */
+  .contacto-wrapper {
+    flex-direction: column !important; /* Fuerza apilamiento vertical */
+    gap: 20px !important;
+    padding: 0 0.5rem;
+  }
+
+  .contacto-col-info, 
+  .contacto-col-mapa {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 15px 12px !important; /* Relleno compacto para no ahogar los textos */
+  }
+
+  .contacto-lista-redes a {
+    font-size: 0.95rem !important; /* Tamaño de letra ligeramente más cómodo en pantalla pequeña */
+    word-break: break-all; /* Si el email es muy largo, salta de línea sin salirse */
+  }
+
+  .contacto-col-mapa {
+    min-height: 260px !important; /* Altura adecuada para el mapa en teléfono */
+  }
+}
   </style>
 </head>
 <body>
