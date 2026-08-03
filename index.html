@@ -260,165 +260,175 @@
       color: var(--text-muted);
     }
     /* --- LÍNEA DEL TIEMPO EDITORIAL DE NOTICIAS --- */
-    .news-timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: 3rem auto 1rem auto;
-      padding: 1rem 0;
-    }
+.news-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 3rem auto 1rem auto;
+  padding: 1rem 0;
+}
 
-    /* Línea vertical central */
-    .news-timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 2px;
-      background: linear-gradient(180deg, var(--primary-color) 0%, var(--border-color) 100%);
-      transform: translateX(-50%);
-    }
+/* Línea vertical central */
+.news-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--border-color) 100%);
+  transform: translateX(-50%);
+}
 
-    /* Cada bloque de noticia */
-    .news-card {
-      position: relative;
-      width: 50%;
-      padding: 0 2.5rem 3rem 0;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-    }
+/* Cada bloque de noticia */
+.news-card {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 3rem 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 
-    /* Alternancia izquierda / derecha */
-    .news-card:nth-child(odd) {
-      left: 0;
-      text-align: right;
-      align-items: flex-end;
-    }
+/* Alternancia izquierda / derecha */
+.news-card:nth-child(odd) {
+  left: 0;
+  text-align: right;
+  align-items: flex-end;
+}
 
-    .news-card:nth-child(even) {
-      left: 50%;
-      padding: 0 0 3rem 2.5rem;
-      text-align: left;
-      align-items: flex-start;
-    }
+.news-card:nth-child(even) {
+  left: 50%;
+  padding: 0 0 3rem 2.5rem;
+  text-align: left;
+  align-items: flex-start;
+}
 
-    /* Punto o nodo en la línea central */
-    .news-card::after {
-      content: '';
-      position: absolute;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      background-color: #ffffff;
-      border: 3px solid var(--primary-color);
-      border-radius: 50%;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
+/* Punto o nodo en la línea central */
+.news-card::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
 
-    .news-card:nth-child(odd)::after {
-      right: -9px;
-    }
+.news-card:nth-child(odd)::after {
+  right: -9px;
+}
 
-    .news-card:nth-child(even)::after {
-      left: -9px;
-    }
+.news-card:nth-child(even)::after {
+  left: -9px;
+}
 
-    .news-card:hover::after {
-      background-color: var(--primary-color);
-      transform: scale(1.3);
-    }
+.news-card:hover::after {
+  background-color: var(--primary-color);
+  transform: scale(1.3);
+}
 
-    /* Imagen integrada */
-    .news-image-container {
-      width: 100%;
-      max-width: 420px;
-      height: 180px;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      background-color: var(--accent-soft);
-    }
+/* Imagen integrada */
+.news-image-container {
+  width: 100%;
+  max-width: 420px;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  background-color: var(--accent-soft);
+}
 
-    .news-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
 
-    .news-card:hover .news-image {
-      transform: scale(1.04);
-    }
+.news-card:hover .news-image {
+  transform: scale(1.04);
+}
 
-    /* Textos */
-    .news-date {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
+/* Textos */
+.news-date {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
 
-    .news-title {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 0.5rem;
-      line-height: 1.35;
-    }
+.news-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
 
-    .news-description {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
+.news-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
 
-    .news-link {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
-    }
+.news-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
 
-    .news-link:hover {
-      border-color: var(--primary-color);
-    }
+.news-link:hover {
+  border-color: var(--primary-color);
+}
 
-    /* Adaptación perfecta a teléfonos / pantallas estrechas */
-    @media (max-width: 768px) {
-      .news-timeline::before {
-        left: 15px;
-      }
+/* Adaptación perfecta a teléfonos / pantallas estrechas */
+@media (max-width: 768px) {
+  .news-timeline::before {
+    left: 15px;
+  }
 
-      .news-card,
-      .news-card:nth-child(odd),
-      .news-card:nth-child(even) {
-        width: 100%;
-        left: 0 !important;
-        padding: 0 0 2.5rem 2.5rem !important;
-        text-align: left !important;
-        align-items: flex-start !important;
-      }
+  .news-card,
+  .news-card:nth-child(odd),
+  .news-card:nth-child(even) {
+    width: 100% !important;
+    left: 0 !important;
+    padding: 0 0 2.5rem 2.5rem !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    box-sizing: border-box;
+  }
 
-      .news-card::after,
-      .news-card:nth-child(odd)::after,
-      .news-card:nth-child(even)::after {
-        left: 7px !important;
-        right: auto !important;
-      }
+  .news-card::after,
+  .news-card:nth-child(odd)::after,
+  .news-card:nth-child(even)::after {
+    left: 7px !important;
+    right: auto !important;
+  }
 
-      .news-image-container {
-        max-width: 100%;
-      }
-    }
+  /* Ajuste responsive de imágenes */
+  .news-image-container {
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .news-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
    /* Estilos del diseño de franjas horizontales */
 
     .fullwidth-skills-wrapper {
@@ -858,6 +868,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project-card {
@@ -869,6 +881,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -921,6 +934,28 @@
   font-size: 0.9rem;
   color: #64748b;
   line-height: 1.5;
+}
+
+/* --- ADAPTACIÓN RESPONSIVE DE PROYECTOS PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .project-line {
+    padding: 0 1rem; /* Margen de seguridad lateral para todo el bloque */
+    box-sizing: border-box;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Una sola columna fluida en móvil */
+    gap: 1.2rem;
+  }
+
+  .project-card {
+    width: 100%; /* Asegura que la tarjeta no sobrepase el ancho */
+  }
+
+  .project-img-wrapper {
+    height: auto;
+    aspect-ratio: 16 / 9; /* Mantiene la proporción perfecta en las fotos de proyectos */
+  }
 }
 
 /* --- BLOQUE DETALLADO (OCULTO/DESPLEGABLE) --- */
@@ -1069,6 +1104,118 @@ details.project-card > summary::-webkit-details-marker {
 .project-details-content th {
   background-color: #f0f4f8;
   color: #333;
+}
+/* --- SECCIÓN CONTACTO Y REDES --- */
+.contacto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contacto-card {
+  flex: 1 1 350px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.contacto-card h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333333;
+  font-size: 1.3em;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.contacto-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.contacto-lista li {
+  margin-bottom: 15px;
+}
+
+.contacto-lista li:last-child {
+  margin-bottom: 0;
+}
+
+.contacto-lista a {
+  text-decoration: none;
+  color: #444444;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: color 0.2s ease;
+  word-break: break-word;
+}
+
+.contacto-lista a:hover {
+  color: #3182ce;
+}
+
+.contacto-lista img {
+  width: 25px !important;
+  height: 25px !important;
+  max-width: 25px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Estilo para el mapa iframe */
+.contacto-mapa {
+  flex: 1 1 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  min-height: 350px;
+  box-sizing: border-box;
+}
+
+.contacto-mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Logo personal inferior */
+.contacto-footer-logo {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.contacto-footer-logo img {
+  max-width: 150px !important;
+  height: auto !important;
+  display: inline-block;
+}
+
+/* --- ADAPTACIÓN RESPONSIVE (MÓVIL) --- */
+@media (max-width: 768px) {
+  .contacto-grid {
+    gap: 20px;
+  }
+  
+  .contacto-card,
+  .contacto-mapa {
+    flex: 1 1 100%;
+    padding: 18px;
+  }
+
+  .contacto-mapa {
+    min-height: 280px;
+  }
 }
   </style>
 </head>
@@ -1925,7 +2072,7 @@ details.project-card > summary::-webkit-details-marker {
       <p>Espacio dedicado a compartir materiales interactivos, cartografía y recursos de divulgación científica.</p>
     </section>
 
-    <!-- Sección Contacto -->
+<!-- Sección Contacto -->
 <section id="contacto" class="tab-section">
   <div class="section-header">
     <h2>Contacto</h2>
@@ -1933,75 +2080,67 @@ details.project-card > summary::-webkit-details-marker {
   </div>
 
   <!-- Contenedor principal a dos columnas -->
-  <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+  <div class="contacto-grid">
     
     <!-- Columna Izquierda: Información y Redes -->
-    <div style="flex: 1 1 350px; padding: 25px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;">
-      <h3 style="margin-top: 0; margin-bottom: 25px; color: #333; font-size: 1.3em; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px;">
-        Mis redes:
-      </h3>
+    <div class="contacto-card">
+      <h3>Mis redes:</h3>
       
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1em;">
-        
+      <ul class="contacto-lista">
         <!-- Correo -->
-        <li style="margin-bottom: 15px;">
-          <a href="mailto:francisco.pinillos@uca.es" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px; transition: color 0.2s;">
-            <img src="correo.png" alt="Icono de correo" style="width: 25px; height: auto;">
+        <li>
+          <a href="mailto:francisco.pinillos@uca.es">
+            <img src="correo.png" alt="Icono de correo" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             francisco.pinillos@uca.es
           </a>
         </li>
         
         <!-- LinkedIn -->
-        <li style="margin-bottom: 15px;">
-          <a href="https://www.linkedin.com/in/franciscoj-v%C3%A1zquez-pinillos/" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
-            <img src="linkedin.webp" alt="Logo de LinkedIn" style="width: 25px; height: auto;">
+        <li>
+          <a href="https://www.linkedin.com/in/franciscoj-v%C3%A1zquez-pinillos/" target="_blank" rel="noopener">
+            <img src="linkedin.webp" alt="Logo de LinkedIn" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             LinkedIn
           </a>
         </li>
         
         <!-- ORCID -->
-        <li style="margin-bottom: 15px;">
-          <a href="https://orcid.org/0000-0001-5453-1163" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
-            <img src="orcid.webp" alt="Logo de ORCID" style="width: 25px; height: auto;">
+        <li>
+          <a href="https://orcid.org/0000-0001-5453-1163" target="_blank" rel="noopener">
+            <img src="orcid.webp" alt="Logo de ORCID" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             ORCID
           </a>
         </li>
         
         <!-- ResearchGate -->
-        <li style="margin-bottom: 15px;">
-          <a href="https://www.researchgate.net/profile/Francisco-Vazquez-Pinillos?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImhvbWUiLCJwYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoiZ2xvYmFsSGVhZGVyIn19" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
-            <img src="rg.webp" alt="Logo de ResearchGate" style="width: 25px; height: auto;">
+        <li>
+          <a href="https://www.researchgate.net/profile/Francisco-Vazquez-Pinillos?ev=hdr_xprf&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6ImhvbWUiLCJwYWdlIjoiaG9tZSIsInBvc2l0aW9uIjoiZ2xvYmFsSGVhZGVyIn19" target="_blank" rel="noopener">
+            <img src="rg.webp" alt="Logo de ResearchGate" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             ResearchGate
           </a>
         </li>
         
         <!-- Academia.edu -->
-        <li style="margin-bottom: 15px;">
-          <a href="https://circulodelestrecho.academia.edu/FranciscoJos%C3%A9V%C3%A1zquezPinillos" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
-            <img src="academia.webp" alt="Logo de Academia.edu" style="width: 25px; height: auto;">
+        <li>
+          <a href="https://circulodelestrecho.academia.edu/FranciscoJos%C3%A9V%C3%A1zquezPinillos" target="_blank" rel="noopener">
+            <img src="academia.webp" alt="Logo de Academia.edu" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             Academia.edu
           </a>
         </li>
         
         <!-- Google Scholar -->
         <li>
-          <a href="https://scholar.google.com/citations?user=UP50IBcAAAAJ&hl=es" target="_blank" rel="noopener" style="text-decoration: none; color: #444; display: flex; align-items: center; gap: 15px;">
-            <img src="google.webp" alt="Logo de Google Scholar" style="width: 25px; height: auto;">
+          <a href="https://scholar.google.com/citations?user=UP50IBcAAAAJ&hl=es" target="_blank" rel="noopener">
+            <img src="google.webp" alt="Logo de Google Scholar" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
             Google Scholar
           </a>
         </li>
-        
       </ul>
     </div>
 
     <!-- Columna Derecha: Mapa de Cádiz -->
-    <div style="flex: 1 1 400px; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; min-height: 350px;">
+    <div class="contacto-mapa">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102434.9090623315!2d-6.33177726487224!3d36.51641324738596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dc6f5789498d5%3A0x6bba8761184ffbe3!2sC%C3%A1diz!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
-        width="100%" 
-        height="100%" 
-        style="border:0; display: block;" 
-        allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
@@ -2010,8 +2149,8 @@ details.project-card > summary::-webkit-details-marker {
   </div>
 
   <!-- Cierre de sección con Logo Personal -->
-  <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
-    <img src="Logo.png" alt="Logo personal de Francisco Vázquez Pinillos" style="max-width: 150px; height: auto;">
+  <div class="contacto-footer-logo">
+    <img src="Logo.png" alt="Logo personal de Francisco Vázquez Pinillos" style="max-width: 150px !important; height: auto !important;">
   </div>
 </section>
 
