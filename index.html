@@ -1187,18 +1187,16 @@ details.project-card > summary::-webkit-details-marker {
   display: block;
 }
 
-/* Logo personal inferior */
+/* Ajuste de margen para la integración en la sección de Contacto */
 .contacto-footer-logo {
-  text-align: center;
-  margin-top: 50px;
-  padding-top: 20px;
-  border-top: 1px solid #e0e0e0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contacto-footer-logo img {
-  max-width: 150px !important;
-  height: auto !important;
-  display: inline-block;
+.contacto-footer-logo .filiacion-logos-container {
+  margin-top: 20px; /* Reducimos ligeramente el margen superior dentro de contacto */
 }
 
 /* --- ADAPTACIÓN RESPONSIVE (MÓVIL) --- */
@@ -1289,6 +1287,57 @@ details.project-card > summary::-webkit-details-marker {
     margin: 10px auto !important;
     border-radius: 6px;
   }
+}
+/* --- TRÍPTICO DE LOGOS EN EL PIE (TAMAÑO MÁS GRANDE) --- */
+.filiacion-logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px; /* Más espacio entre ellos para que respiren */
+  margin-top: 45px;
+  padding: 20px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logos secundarios (GIAL y UCA) */
+.logo-filiacion {
+  height: 75px; /* Aumentado de 55px a 75px */
+  width: auto;
+  opacity: 0.70;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-filiacion:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Logo personal en el centro */
+.large-logo {
+  height: 100px; /* Aumentado de 75px a 100px */
+  width: auto;
+  opacity: 0.95;
+}
+
+/* Adaptación para pantallas de móvil */
+@media (max-width: 768px) {
+  .filiacion-logos-container {
+    gap: 20px;
+  }
+
+  .logo-filiacion {
+    height: 55px; /* En móvil también suben de tamaño manteniendo el ajuste */
+  }
+
+  .large-logo {
+    height: 75px;
+  }
+ .filiacion-logos-container a {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+}
 }
   </style>
 </head>
@@ -1477,10 +1526,21 @@ details.project-card > summary::-webkit-details-marker {
 
       </div>
 
-      <!-- 3. Logo en tamaño grande al final -->
-      <div class="large-logo-container">
-        <img src="Logo.png" alt="Logo Curro Vázquez Pinillos" class="large-logo">
-      </div>
+    <!-- 3. Logos institucionales al final (GIAL - Personal - UCA) -->
+<div class="filiacion-logos-container">
+  <!-- Enlace al Grupo GIAL -->
+  <a href="https://hum117.uca.es/presentacion-3/" target="_blank" rel="noopener noreferrer">
+    <img src="logogial.svg" alt="Grupo de Investigación GIAL" class="logo-filiacion">
+  </a>
+
+  <!-- Tu logo personal (sin enlace o con enlace a #inicio si prefieres) -->
+  <img src="Logo.png" alt="Logo Curro Vázquez Pinillos" class="large-logo">
+
+  <!-- Enlace a la UCA -->
+  <a href="https://www.uca.es/" target="_blank" rel="noopener noreferrer">
+    <img src="logouca.png" alt="Universidad de Cádiz" class="logo-filiacion">
+  </a>
+</div>
 
     </section>
 
@@ -2207,6 +2267,21 @@ details.project-card > summary::-webkit-details-marker {
             Google Scholar
           </a>
         </li>
+        <!-- Producción Científica UCA -->
+        <li>
+          <a href="https://produccioncientifica.uca.es/investigadores/113593/detalle" target="_blank" rel="noopener">
+            <img src="logouca.png" alt="Logo de la UCA" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
+            Producción Científica UCA
+          </a>
+        </li>
+
+        <!-- YouTube -->
+        <li>
+          <a href="https://www.youtube.com/@franciscojosevazquezpinill9843" target="_blank" rel="noopener">
+            <img src="youtube.png" alt="Logo de YouTube" style="width: 25px !important; height: 25px !important; max-width: 25px !important; object-fit: contain;">
+            YouTube
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -2221,10 +2296,23 @@ details.project-card > summary::-webkit-details-marker {
 
   </div>
 
-  <!-- Cierre de sección con Logo Personal -->
-  <div class="contacto-footer-logo">
-    <img src="Logo.png" alt="Logo personal de Francisco Vázquez Pinillos" style="max-width: 150px !important; height: auto !important;">
+  <!-- Cierre de sección con Logos Institucionales y Personal -->
+<div class="contacto-footer-logo">
+  <div class="filiacion-logos-container">
+    <!-- Enlace al Grupo GIAL -->
+    <a href="https://hum117.uca.es/presentacion-3/" target="_blank" rel="noopener noreferrer">
+      <img src="logogial.svg" alt="Grupo de Investigación GIAL" class="logo-filiacion">
+    </a>
+
+    <!-- Logo personal -->
+    <img src="Logo.png" alt="Logo Francisco Vázquez Pinillos" class="large-logo">
+
+    <!-- Enlace a la UCA -->
+    <a href="https://www.uca.es/" target="_blank" rel="noopener noreferrer">
+      <img src="logouca.png" alt="Universidad de Cádiz" class="logo-filiacion">
+    </a>
   </div>
+</div>
 </section>
 
   </main>
