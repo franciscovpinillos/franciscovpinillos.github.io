@@ -1670,6 +1670,30 @@ details.project-card > summary::-webkit-details-marker {
   color: #808080;
   font-weight: 400;
 }
+
+/* Enlace a noticia/post externo en divulgación */
+.divulgacion-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #114b5f; /* Turquesa oscuro */
+  text-decoration: none;
+  background-color: #f0f7f7;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #cce3e3;
+  transition: all 0.2s ease;
+}
+
+.divulgacion-link:hover {
+  background-color: #114b5f;
+  color: #ffffff;
+  border-color: #114b5f;
+  transform: translateY(-1px);
+}
   </style>
 </head>
 <body>
@@ -2015,6 +2039,16 @@ details.project-card > summary::-webkit-details-marker {
   <div class="pub-category">
     <h3><i class="fas fa-journal-whills"></i> Artículos en revistas</h3>
     
+    <div class="pub-card">
+      <span class="pub-badge year-2026">2026</span>
+      <div class="pub-content">
+        <p class="pub-authors">Lazo Corvalán, A., Ávila Lagos, M., Ther-Ríos, F., Yáñez Mena, I., Mansilla Muñoz, A., Aroca Sánchez, G. y <strong>Vázquez Pinillos, F. J.</strong></p>
+        <p class="pub-title">Collector mobilities: Embodiment practices, relationality and sensoriality among seaweed collectors in southern Chile.</p>
+        <p class="pub-journal"><em>Social Sciences & Humanities Open</em>, 14, 103500.</p>
+        <a href="https://doi.org/10.1016/j.ssaho.2026.103500" target="_blank" rel="noopener" class="pub-link"><i class="fas fa-external-link-alt"></i> Ver DOI</a>
+      </div>
+    </div>
+
     <div class="pub-card">
       <span class="pub-badge year-2026">2026</span>
       <div class="pub-content">
@@ -2559,6 +2593,13 @@ details.project-card > summary::-webkit-details-marker {
           <span class="fecha-tag">Noviembre 2025</span>
           <h4>La Noche Europea de los Investigadores</h4>
           <p>Presentación del juego <em>"Marismas y Flamencos. Decide el destino de la Bahía de Cádiz"</em>.</p>
+          
+          <!-- Enlace a la noticia internacional -->
+          <a href="https://rewriteproject.eu/news/30/european-researchers-night-playing-for-the-future-of-cadiz-bay" target="_blank" rel="noopener" class="divulgacion-link">
+            <span>🌐</span> Ver nota de prensa (REWRITE Project) →
+          </a>
+        </div>
+
         </div>
         <!-- Carrusel Divulgación -->
         <div class="carrusel-container">
@@ -2905,4 +2946,5 @@ details.project-card > summary::-webkit-details-marker {
       card.classList.add('is-open');
     }
   }
+
 </script>
